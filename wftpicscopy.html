@@ -1,0 +1,175 @@
+<html>
+<?php
+
+	<head>
+<div
+   style="
+      top: 15;
+      left: 189;
+      position: fixed;
+      z-index: 1;
+      visibility: show;">
+
+<style type="text/css">
+p
+{ 
+word-spacing:30px;
+}
+p.sansserif{font-family:"Arial",Gotham,sans-serif;}
+
+</style>
+<center>
+
+<a href="index.html">
+<img src="images/headerbanner.jpg" alt = "wildfrontheader" />
+
+</a>
+
+</center>
+</div>
+<div
+   style="
+      top: 90;
+      left: 238;
+      position: fixed;
+      z-index: 1;
+      visibility: show;">
+
+<FONT SIZE="+1" COLOR="White"> <p class="sansserif"><a href="wftmusic.html">Music</a> <a href="shows.html">Shows</a> <a href="wftpicscopy.html">Pictures</a> <a href="wftvideopage.html">Video</a></p></FONT></TD>
+</div>
+
+
+</center>
+</div>
+	</head>
+<br>
+
+	<body>
+<div
+   style="
+      top: 137;
+      left: 156;
+      position: fixed;
+      z-index: 1;
+      visibility: show;">
+
+<body link="#C0C0C0" vlink="#808080" alink="#FF0000"> 
+<center><SCRIPT LANGUAGE="JavaScript">
+<!--
+
+src = ["images/wftslide.jpg","images/wftslide1.jpg","images/wftslide2.jpg","images/wftslide3.jpg","images/wftslide4.jpg"]
+
+
+
+url = ["http://freewarejava.com", "http://javascriptkit.com", "http://dynamicdrive.com", "http://www.geocities.com"]
+
+
+duration = 3;
+
+ads=[]; ct=0;
+function switchAd() {
+var n=(ct+1)%src.length;
+if (ads[n] && (ads[n].complete || ads[n].complete==null)) {
+document["Ad_Image"].src = ads[ct=n].src;
+}
+ads[n=(ct+1)%src.length] = new Image;
+ads[n].src = src[n];
+setTimeout("switchAd()",duration*1000);
+}
+function doLink(){
+location.href = url[ct];
+} onload = function(){
+if (document.images)
+switchAd();
+}
+//-->
+</SCRIPT>
+
+<A HREF="javascript:doLink();" onMouseOver="status=url[ct];return true;" 
+onMouseOut="status=''">
+<IMG NAME="Ad_Image" SRC="http://dl.dropbox.com/u/44410989/band%20slides/%20band%201.jpg" BORDER=0>
+</A>
+
+</center>		
+</style>
+</div>
+<br>
+<br>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+		<script type="text/javascript">
+			var f_page = "wildfronttears"; 
+			var t_page = "wildfronttears"; 
+
+			function add_commas(number) {
+				if (number.length > 3) {
+					var mod = number.length % 3;
+					var output = (mod > 0 ? (number.substring(0,mod)) : '');
+					for (i=0 ; i < Math.floor(number.length / 3); i++) {
+						if ((mod == 0) && (i == 0)) {
+							output += number.substring(mod+ 3 * i, mod + 3 * i + 3);
+						} else {
+							output+= ',' + number.substring(mod + 3 * i, mod + 3 * i + 3);	
+						}
+					}
+					return (output);
+				} else {
+					return number;
+				}
+			}
+
+			// when document is ready load the counts
+			$(document).ready(function(){
+
+				// grab from facebook
+				$.getJSON('https://graph.facebook.com/'+f_page+'?callback=?', function(data) {
+					var fb_count = data['likes'].toString();
+					fb_count = add_commas(fb_count);
+					$('#fb_count').html(fb_count);
+				});
+
+				// grab from twitter
+				$.getJSON('http://api.twitter.com/1/users/show.json?screen_name='+t_page+'&callback=?', function(data) {
+					twit_count = data['followers_count'].toString();
+					twit_count = add_commas(twit_count);
+					$('#twitter_count').html(twit_count);
+				});
+
+			});
+		</script>
+</body>
+
+<style type="text/css">
+p.margin
+{
+margin-top:100px;
+margin-bottom:100px;
+margin-right:280px;
+margin-left:280px;
+color:White;
+}
+
+</style>
+<div
+   style="
+      top: 496;
+      left: 205;
+      position: fixed;
+      z-index: 2;
+      visibility: show;">
+<font size="3" face="harrington" color="yellow">
+		<a href="http://www.facebook.com/wildfronttears"><img src="images/fbl.png"alt="="/>= <span id="fb_count"></span></a><br />
+		<a href="http://www.twitter.com/wildfronttears"><img src="images/tl.jpg" alt="="/>= <span id="twitter_count"></span></a><br/>
+</font>
+</div>
+
+<center>
+<div
+   style="
+      top: 490;
+      left: 189;
+      position: fixed;
+      z-index: 1;
+      visibility: show;">
+<img src="images/footerbanner.jpg" alt = "wild front footer" /></center></div>
+
+</html>
